@@ -1,0 +1,31 @@
+nav .navbar navbar-light bg-light {
+    background-color: #575757;
+    background: rgba(255, 255, 255, 0.5)
+}
+
+nav navbar-brand {
+    color: #747474;
+}
+
+.site-header {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+}
+
+.site-heading {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.site-heading a {
+    font-size: 32px;
+    font-weight: 500;
+    color: #FF652F;
+    margin: 0 auto;
+    padding: 16px;
+}

@@ -1,0 +1,7 @@
+.card.is-comment-box .card-body {
+    padding: 12px;
+}
+
+.textarea.form-control {
+    height: 150px;
+}

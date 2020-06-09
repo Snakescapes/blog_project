@@ -1,0 +1,58 @@
+.site-footer .site-wrapper {
+    background: #272727;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    font-size: 1em;
+}
+
+.site-footer .social a {
+    background: rgba(0, 0, 0, 0.3);
+    color: #FF652F;
+}
+
+.site-footer .site-wrapper p {
+    color: #F4F4F4;
+    opacity: 0.4;
+    transition: opacity 0.3s ease-in;
+}
+
+.site-footer:hover .site-wrapper p {
+    opacity: 0.8;
+}
+
+.site-footer .site-wrapper p:first-child {
+    font-size: 1em;
+}
+
+.site-footer .site-wrapper .info {
+    padding-left: 1em;
+}
+
+.social {
+    display: flex;
+}
+
+.social li {
+    display: block;
+    list-style: none;
+    margin-right: 1em;
+}
+
+.social a {
+    display: flex;
+    color: #000;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    width: 2.8em;
+    height: 2.8em;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2sec ease-in;
+}
+
+.social a:hover {
+    background: rgba(255, 255, 255, 0.9);
+}

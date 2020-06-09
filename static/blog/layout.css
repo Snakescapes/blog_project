@@ -1,0 +1,30 @@
+.site {
+    background: #C2CAC0;
+}
+
+.navbar-dark .navbar-brand {
+    color: #FF652F;
+}
+
+.index-heading {
+    color: #333;
+}
+
+body > div > div.container.p-4 > h1 > hr {
+    background: #FF652F;
+    height: 0.2px;
+}
+
+.card-body {
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.card-text {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.card-text::after {
+    content: '...';
+}

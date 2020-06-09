@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% block content %}
+
+{% for gallery in galleries %}
+    <h2 class="index-heading">{{ gallery.title}}
+        <hr>
+    </h2>
+    <div class="row">
+        <div class="col-6 col-md-3 col-lg-2 mt-4">
+            <ul>
+                {% for image_set in images %}
+                    {% for image in image_set %}
+                <li><img src="{{ image.image.url }}" class="img-fluid" alt="Responsive-image"></li>
+            </ul>
+                    {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
