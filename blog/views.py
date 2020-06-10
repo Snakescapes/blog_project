@@ -6,8 +6,8 @@ from .forms import CommentForm
 
 def index(request):
     all_articles = Article.objects.all()
-    latest_three_articles = list(Article.objects.all().order_by('-pub_date'))[:3]
-    context = {'all_articles': all_articles, 'latest_three_articles': latest_three_articles}
+    article_1, article_2, article_3 = Article.objects.all().order_by('-pub_date')[:3]
+    context = {'all_articles': all_articles, 'article_1': article_1, 'article_2': article_2, 'article_3': article_3}
     return render(request, 'blog/index.html', context)
 
 

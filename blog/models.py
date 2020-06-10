@@ -1,19 +1,24 @@
 from django.db import models
 from django.utils import timezone
 
+
 STATUS = (
     (0,"Draft"),
     (1,"Publish")
 )
 
 
+def set_image_save_path(instance, filename):
+    return f"{instance.title}/{filename}"
+
+
 class ArticleCategories(models.Model):
     name = models.CharField(max_length=50)
 
-    @classmethod
-    def create_category(cls, new_name):
-        new_category = cls(name=new_name)
-        return new_category
+    # @classmethod
+    # def create_category(cls, new_name):
+    #     new_category = cls(name=new_name)
+    #     return new_category
 
     def __str__(self):
         return self.name
@@ -21,25 +26,27 @@ class ArticleCategories(models.Model):
     class Meta:
         verbose_name_plural = "article categories"
 
+
 class Article(models.Model):
     category = models.ForeignKey(ArticleCategories, on_delete=models.CASCADE)
     title = models.CharField('Article title', max_length=255)
     pub_date = models.DateTimeField('Date published', default=timezone.now)
-    image_url = models.CharField('Image url', max_length=2083)
+    image_url = models.CharField('Image url', max_length=2083, blank=True)
     content = models.TextField('Article content')
     status = models.IntegerField(choices=STATUS, default=0)
+    cover_photo = models.ImageField(default='default.jpg', upload_to=set_image_save_path, null=False, blank=True)
 
     class Meta:
-        ordering = ['pub_date']
+        ordering = ['-pub_date']
 
-    @classmethod
-    def create_article(cls, category, title, pub_date, image_url, content):
-        if ArticleCategories.objects.filter(name__icontains=category):
-            category = ArticleCategories.objects.filter(name__icontains=category)[0]
-        else:
-            category = ArticleCategories.create_category(category)
-        article = cls(category, title, pub_date, image_url, content)
-        return article
+    # @classmethod
+    # def create_article(cls, category, title, pub_date, image_url, content):
+    #     if ArticleCategories.objects.filter(name__icontains=category):
+    #         category = ArticleCategories.objects.filter(name__icontains=category)[0]
+    #     else:
+    #         category = ArticleCategories.create_category(category)
+    #     article = cls(category, title, pub_date, image_url, content)
+    #     return article
 
     def __str__(self):
         return self.title

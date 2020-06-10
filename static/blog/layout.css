@@ -6,7 +6,18 @@
     color: #FF652F;
 }
 
+.contain {
+    width: 1100px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.img-wrap {
+
+}
+
 .index-heading {
+    margin-top: 16px;
     color: #333;
 }
 

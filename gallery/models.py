@@ -1,5 +1,6 @@
 from django.db import models
 from blog.models import Article
+from django_resized import ResizedImageField
 
 
 def set_image_save_path(instance, filename):
@@ -28,9 +29,14 @@ class Image(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(default='default.jpg', upload_to=set_image_save_path, null=False, blank=False)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    image_thumbnail = ResizedImageField(size=[230, 130], crop=['middle', 'center'], quality=75,
+                                        upload_to=set_image_save_path, null=True)
 
     def __str__(self):
         return self.title
 
     class Meta:
         ordering = ['-timestamp']
+
+
+
