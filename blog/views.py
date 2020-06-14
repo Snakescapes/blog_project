@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import ArticleCategories, Article
+from .models import Article
 from .forms import CommentForm
 
 
 def index(request):
-    all_articles = Article.objects.all()
+    all_articles = Article.objects.all().order_by('pub_date')[:6]
     article_1, article_2, article_3 = Article.objects.all().order_by('-pub_date')[:3]
     context = {'all_articles': all_articles, 'article_1': article_1, 'article_2': article_2, 'article_3': article_3}
     return render(request, 'blog/index.html', context)

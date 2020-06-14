@@ -10,7 +10,7 @@ class ArticleCategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'pub_date', 'category']
+    list_display = ['title', 'pub_date', 'category', 'status']
     list_filter = ['title', 'pub_date', 'category']
     actions = ['copy_article']
 

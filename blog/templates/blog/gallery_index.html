@@ -6,17 +6,15 @@
 
 
 {% for gallery in galleries %}
-<div class="gallery mb-4">
+<div class="mb-4">
     <h2 class="gallery-heading">{{ gallery.title}}
         <hr>
     </h2>
-    <div class="row justify-content-start">
-        {% for image_set in images %}
-            {% for image in image_set %}
-                <div class="col-6 col-md-3 col-lg-2 d-md-flex img-wrap">
-                    <img src="{{ image.image.url }}" class="img-fluid" alt="{{ image.image.title }}">
-                </div>
-        {% endfor %}
+    <div class="row justify-content-start gallery">
+        {% for image in gallery.images.all %}
+            <div class="col-6 col-md-3 col-lg-2 d-md-flex">
+                <img src="{{ image.size_gallery.url }}" class="img-fluid" alt="{{ image.image.title }}" data-full-img="{{ image.size_large.url }}">
+            </div>
         {% endfor %}
     </div>
 </div>

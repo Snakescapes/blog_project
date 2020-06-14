@@ -1,6 +1,8 @@
 from django.db import models
 from blog.models import Article
-from django_resized import ResizedImageField
+from imagekit.models import ImageSpecField
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill, ResizeToCover
 
 
 def set_image_save_path(instance, filename):
@@ -27,10 +29,9 @@ class Gallery(models.Model):
 class Image(models.Model):
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images')
     title = models.CharField(max_length=200)
-    image = models.ImageField(default='default.jpg', upload_to=set_image_save_path, null=False, blank=False)
+    size_large = ProcessedImageField(upload_to=set_image_save_path, processors=[ResizeToFill(1600, 900)], format='JPEG', options={'quality': 80}, null=False, blank=False, default='default.jpg')
+    size_gallery = ImageSpecField(source='size_large', processors=[ResizeToFill(160, 90)], format='JPEG', options={'quality': 60})
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-    image_thumbnail = ResizedImageField(size=[230, 130], crop=['middle', 'center'], quality=75,
-                                        upload_to=set_image_save_path, null=True)
 
     def __str__(self):
         return self.title
@@ -38,5 +39,14 @@ class Image(models.Model):
     class Meta:
         ordering = ['-timestamp']
 
-
-
+# class Image(models.Model):
+#     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images')
+#     title = models.CharField(max_length=200)
+#     image = models.ImageField(default='default.jpg', upload_to=set_image_save_path, null=False, blank=False)
+#     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+#
+#     def __str__(self):
+#         return self.title
+#
+#     class Meta:
+#         ordering = ['-timestamp']
