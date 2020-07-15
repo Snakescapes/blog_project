@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="31e8fbd8-a625-462e-b0a1-fd50d4c08090" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/gallery_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/gallery_index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/blog/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/blog/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/blog/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/blog/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,17 +121,33 @@
       <option name="presentableId" value="Default" />
       <updated>1590742522711</updated>
     </task>
+    <task id="LOCAL-00001" summary="Styling changes">
+      <created>1594793770949</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594793770950</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Styling changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Styling changes" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="458" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594289816942">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="458" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-161.-1050.1680.1010@0.0.1366.728" timestamp="1594289816942" />
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1594793769737">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.728/-161.-1050.1680.1010@0.0.1366.728" timestamp="1594793769737" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1591258163432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -187,9 +196,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592127566115" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593164715988">
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594793784128">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-161.-1050.1680.1010@0.0.1366.728" timestamp="1594793784128" />
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1593164715988" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1591601448007">
       <screen x="0" y="0" width="1366" height="728" />
