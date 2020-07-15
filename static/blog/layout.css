@@ -1,9 +1,31 @@
+:root{
+    --border-radius: 10px;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
 .site {
-    background: #C2CAC0;
+    background: #f4f5f499;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar-dark .navbar-brand {
     color: #FF652F;
+}
+
+.flex-1 {
+    flex: 1
+}
+
+.rounded-img {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.125)
 }
 
 .contain {
@@ -12,24 +34,59 @@
     object-fit: cover;
 }
 
+.carousel-content {
+    width: 400px;
+    color: white;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    z-index: 20;
+    overflow: hidden;
+    background: rgba(0, 0, 0, .5);
+    border-radius: var(--border-radius);
+    padding: 20px 20px 0px 20px;
+}
+
+.article-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 4px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.article-date {
+    border-top: 1px solid white;
+    font-size: 14px;
+}
+
 .index-heading {
     margin-top: 16px;
     color: #333;
 }
 
-body > div > div.container.p-4 > h1 > hr {
+.separator {
     background: #FF652F;
     height: 0.2px;
+}
+
+.card {
+    height: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .card-body {
     background: #f8f9fa;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-text {
     max-height: 100px;
     overflow: hidden;
+    height: 100%;
 }
 
 .card-text::after {
@@ -37,10 +94,10 @@ body > div > div.container.p-4 > h1 > hr {
 }
 
 .gallery img {
-    width: 150px;
-    height: 80px;
     object-fit: scale-down;
     cursor: pointer;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 #lightbox {
@@ -65,4 +122,24 @@ body > div > div.container.p-4 > h1 > hr {
     padding: 4px;
     background-color: black;
     border: 2px solid white;
+}
+
+.arrow:after {
+    cursor: pointer;
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    z-index: 2;
+    color: white;
+    font-size: 30px;
+}
+
+#arrow-left:after {
+    content: "\f053";
+    left: 25px;
+}
+
+#arrow-right:after {
+    content: "\f054";
+    right: 25px;
 }

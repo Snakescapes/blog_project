@@ -30,7 +30,7 @@ class Image(models.Model):
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images')
     title = models.CharField(max_length=200)
     size_large = ProcessedImageField(upload_to=set_image_save_path, processors=[ResizeToFill(1600, 900)], format='JPEG', options={'quality': 80}, null=False, blank=False, default='default.jpg')
-    size_gallery = ImageSpecField(source='size_large', processors=[ResizeToFill(160, 90)], format='JPEG', options={'quality': 60})
+    size_gallery = ImageSpecField(source='size_large', processors=[ResizeToFill(580, 325)], format='JPEG', options={'quality': 60})
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
