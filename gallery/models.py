@@ -18,8 +18,12 @@ class Gallery(models.Model):
         return f"Gallery: {self.title}"
 
     def get_related_images(self):
-        related_images = list(self.images.all())
+        related_images = self.images.all()
         return related_images
+
+    def get_related_articles(self):
+        related_articles = self.gallery_set.all()
+        return related_articles
 
     class Meta:
         ordering = ['-created_on']

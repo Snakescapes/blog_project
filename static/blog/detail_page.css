@@ -1,7 +1,13 @@
 .card.is-comment-box .card-body {
     padding: 12px;
+    overflow: scroll;
 }
 
 .textarea.form-control {
     height: 150px;
+}
+
+.comment-wrapper {
+    margin-top: 14px;
+    font-size: 14px;
 }

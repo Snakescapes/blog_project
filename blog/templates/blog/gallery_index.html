@@ -13,12 +13,16 @@
         <div class="row justify-content-start gallery">
             {% for image in gallery.images.all %}
                 <div class="col-sm-6 col-lg-3 mt-4">
-                    <img src="{{ image.size_gallery.url }}" class="img-fluid" alt="{{ image.image.title }}" data-full-img="{{ image.size_large.url }}" data-gallery="{{ image.gallery }}">
+                    <img src="{{ image.size_gallery.url }}" class="img-fluid js-gallery-img" alt="{{ image.image.title }}" data-full-img="{{ image.size_large.url }}" data-gallery="{{ image.gallery }}">
                 </div>
             {% endfor %}
         </div>
     </div>
 {% endfor %}
-
+<div id="lightbox">
+    <img src="" id="lightbox-img">
+    <div id="arrow-right" class="arrow"></div>
+    <div id="arrow-left" class="arrow"></div>
+</div>
 
 {% endblock %}

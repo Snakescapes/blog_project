@@ -1,66 +1,73 @@
-const lightbox = document.createElement('div')
-lightbox.id = 'lightbox'
-document.body.appendChild(lightbox)
+// variables
+const lightbox = document.getElementById('lightbox');
+const allImages = document.querySelectorAll('.js-gallery-img');
+let currentIndex = 0
 
-const arrowLeft = document.createElement('a')
-arrowLeft.id = 'arrow-left'
-arrowLeft.classList.add('arrow')
+// get arrow elements
+const arrowLeft = document.getElementById('arrow-left');
+const arrowRight = document.getElementById('arrow-right');
 
-const arrowRight = document.createElement('div')
-arrowRight.id = 'arrow-right'
-arrowRight.classList.add('arrow')
-
-
-
-const images = document.querySelectorAll('.gallery img')
-for (let [index, image] of images.entries()) {
-    image.addEventListener('click', e => {
-        lightbox.classList.add('active')
-
-        const img = document.createElement('img')
-        img.src = image.dataset.fullImg
-
-
-
-        while (lightbox.firstChild) {
-            lightbox.removeChild(lightbox.firstChild)
-        }
-        lightbox.appendChild(img)
-        lightbox.appendChild(arrowLeft)
-        lightbox.appendChild(arrowRight)
-
-        prevImageUrl = images[i-1].src
-        nextImageUrl = images[i+1].src
-        arrowLeft.href = prevImageUrl
-        arrowRight.href = nextImageUrl
-
-    })
+// functions
+function handleImageClick() {
+    currentIndex = [...allImages].indexOf(this);
+    lightbox.classList.add('active');
+    window.addEventListener("keydown", checkKeyPress, false);
+    lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = allImages[currentIndex].dataset.fullImg;
 }
 
-lightbox.addEventListener('click', e => {
-    if(e.target !== e.currentTarget) return
-    lightbox.classList.remove('active')
-})
-
-//let nextImage = $(".class").eq( $(".class").index( $(element) ) + 1 )
-
-
-arrowLeft.addEventListener('click', e => {
-    let prevImage = $(".class").eq( $(".class").index( $(element) ) - 1 )
-    const img = document.createElement('img')
-        img.src = prevImage.dataset.fullImg
-})
-
-// Clear all images
-function reset() {
-    for(let i = 0; i < images.length; i++) {
-        images[i].style.display = 'none'
+function checkKeyPress(key) {
+    if (key.keyCode == "37") {
+       currentIndex--;
+        if(currentIndex < 0) {
+            currentIndex = allImages.length - 1;
+        }
+        lightboxImg.src = allImages[currentIndex].dataset.fullImg;
+    }
+    else if (key.keyCode == "39") {
+        currentIndex++;
+        if(currentIndex > allImages.length - 1) {
+            currentIndex = 0;
+        }
+        lightboxImg.src = allImages[currentIndex].dataset.fullImg;
+    }
+    else if (key.keyCode == "27") {
+        lightbox.classList.remove('active');
+        window.removeEventListener("keydown", checkKeyPress, false);
     }
 }
 
-function startSlide(){
-    reset()
+// func handle arrow click
+function arrrowClick() {
+    if (event.target == arrowLeft) {
+        currentIndex -= 1;
+        if(currentIndex < 0) {
+            currentIndex = allImages.length - 1;
+        }
+        lightboxImg.src = allImages[currentIndex].dataset.fullImg;
+    }
+    else if (event.target == arrowRight) {
+        currentIndex += 1;
+        if(currentIndex > allImages.length - 1) {
+            currentIndex = 0;
+        }
+        lightboxImg.src = allImages[currentIndex].dataset.fullImg;
+    }
 }
 
+// event bindings
+allImages.forEach(image => {
+    image.addEventListener('click', handleImageClick);
+})
 
-let galleries = document.querySelectorAll('div.gallery')
+lightbox.addEventListener('click', e => {
+    if(e.target !== e.currentTarget) return
+    lightbox.classList.remove('active');
+    window.removeEventListener("keydown", checkKeyPress, false);
+})
+
+arrowLeft.addEventListener('click', arrrowClick)
+arrowRight.addEventListener('click', arrrowClick)
+
+
+// bind handler to arrows (handle arrow click)  / update src

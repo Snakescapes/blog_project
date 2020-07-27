@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-lg-8 offset-lg-2">
+    <div class="col-lg-12">
         <article>
             <h1>{{ article.title }}</h1>
             <p class="mb-3 mb-md-4"><i>{{ article.pub_date }}</i></p>
@@ -14,9 +14,25 @@
                 </div>
             </div>
             <p class="mt-4 mt-md-4">{{ article.content}}</p>
-            <hr>
+            <hr class="separator">
             <p>Categories: <a href="">{{ article.category }}</a></p>
+            {% for gallery in article.gallery_set.all %}
+                <h4 class="gallery-heading">Gallery</h4>
+                <div class="row justify-content-start gallery">
+                    {% for image in gallery.images.all %}
+                        <div class="col-sm-4 col-lg-2 mt-4">
+                            <img src="{{ image.size_gallery.url }}" class="img-fluid js-gallery-img" alt="{{ image.image.title }}" data-full-img="{{ image.size_large.url }}" data-gallery="{{ image.gallery }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </article>
+        <hr class="separator">
+        <div id="lightbox">
+            <img src="" id="lightbox-img">
+            <div id="arrow-right" class="arrow"></div>
+            <div id="arrow-left" class="arrow"></div>
+        </div>
 
         {% block comment %} {% include 'comment.html' %} {% endblock comment %}
     </div>
